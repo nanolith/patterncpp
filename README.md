@@ -19,3 +19,5 @@ In short, everyone wins.
 
 Currently, this list is empty, since I just created this project.  Check back
 later.
+
+[gof-wiki]: http://en.wikipedia.org/wiki/Design_Patterns_(book)
