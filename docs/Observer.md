@@ -35,21 +35,25 @@ directory.
 In this example, we will first define a ButtonObserver interface that observers
 can implement to get notifications.
 
+```c++
     class ButtonObserver
     {
     public:
         virtual void onClicked(Button& b) = 0;
     };
+```
 
 We define a single onClicked callback method, and we include the Button that was
 clicked as part of the method.  Now, we'll create a Button class that provides a
 public stimulus method, click(), that kicks off the notification process.
 
+```c++
     class Button : public pattern::Observable<ButtonObserver>
     {
     public:
         void click();
     };
+```
 
 The implementation of the click() method is simple.  We call the notify()
 method, which repeatedly calls the provided lambda expression with each
@@ -58,12 +62,14 @@ which callback method in the interface to call, which makes the Observable
 pattern generic.  Since we can take advantage of C++11 lambda expressions, the
 notification is also compact.
 
+```c++
     void
     Button::click()
     {
         notify(
             [=](ButtonObserver& o) { o.onClicked(*this); });
     }
+```
 
 The notify() method expects a lambda expression that in turn expects a
 ButtonObserver reference.  This lambda expression is then allowed call whichever
@@ -72,6 +78,7 @@ method is appropriate on the reference.
 To put everything together, here is a simple logging class that logs every
 button click to the given output stream.
 
+```c++
     class LoggingButtonObserver : public ButtonObserver
     {
     public:
@@ -88,12 +95,14 @@ button click to the given output stream.
     private:
         ostream& out_;
     };
+```
 
 Finally, here's a main() function that implements a button and calls click() on
 it.  The result, which can be seen by running the exmaple, is that the logging
 observer's onClicked method is called, which in turn logs the event to standard
 output.
 
+```c++
     int main(int argc, char* argv[])
     {
         auto button = make_shared<Button>();
@@ -107,6 +116,7 @@ output.
 
         return 0;
     }
+```
 
 The complete example can be found in [here][observer-example].  This example is
 built as part of the standard shake build.
