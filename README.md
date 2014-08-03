@@ -17,7 +17,14 @@ In short, everyone wins.
 
 ##Implemented Patterns
 
-Currently, this list is empty, since I just created this project.  Check back
-later.
+1. [Observer Pattern][observer-manual]. The Observer Pattern provides a
+   mechanism by which observers can register to receive notifications from an
+   observable object when certain events occur.  This implementation is based
+   loosely on the Gang of Four description of this pattern.  More information
+   is available on [wikipedia][observer-wiki].
+
+More patterns will be added later, as I use them.
 
 [gof-wiki]: http://en.wikipedia.org/wiki/Design_Patterns_(book)
+[observer-manual]: https://github.com/nanolith/patterncpp/blob/master/docs/Observer.md
+[observer-wiki]: http://en.wikipedia.org/wiki/Observer_pattern
