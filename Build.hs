@@ -16,7 +16,10 @@ main = shakeArgs shakeOptions{shakeFiles="_build/"} $ do
     want ["_build/release/examples/Observer/observer_example" <.> exe]
 
     let gtestDir = ".." </> "gtest"
-    let checkedCxxflags = "--coverage -std=c++11 -stdlib=libc++ -O0 -I ./include -I " ++ (gtestDir </> "include") ++ " -I " ++ gtestDir
+    let gtestInclude = " -I " ++ (gtestDir </> "include") ++ " -I " ++ gtestDir
+    let mockppDir = ".." </> "mock"
+    let mockppInclude = " -I " ++ (mockppDir </> "include")
+    let checkedCxxflags = "--coverage -std=c++11 -stdlib=libc++ -O0 -I ./include " ++ gtestInclude ++ mockppInclude
     let releaseCxxflags = "-std=c++11 -stdlib=libc++ -O3 -I ./include"
 
     phony "clean" $ do
