@@ -16,7 +16,8 @@ memory management concerns become easier to deal with.  Future versions of
 Observable may expose further customization via type traits, but this will be
 the default behavior of this implementation.
 
-##Use Patterns
+Use Patterns
+------------
 
 There are two ways to use the Observable template.  The first is to derive from
 it (IS-A).  This is by far the simplest use case.  The second is to build a
@@ -25,7 +26,8 @@ derived types automatically get the addObserver, removeObserver, and notify
 methods.  On the other hand, since these methods are public, anyone can call
 them.  This may or may not be desirable.
 
-##Example
+Example
+-------
 
 In this example, a Button provides onClicked() notifications to ButtonObservers,
 using the Observable template.  This document provides relevant snippets of this
