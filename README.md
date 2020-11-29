@@ -15,7 +15,8 @@ find bugs I will push updates here.  Users win because they can just re-use what
 I have.  I win because I don't have to write these patterns yet another time.
 In short, everyone wins.
 
-##Implemented Patterns
+Implemented Patterns
+--------------------
 
 1. [Observer Pattern][observer-manual]. The Observer Pattern provides a
    mechanism by which observers can register to receive notifications from an
